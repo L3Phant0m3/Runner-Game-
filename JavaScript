@@ -1,0 +1,81 @@
+let player = document.getElementById("player");
+let enemy = document.getElementById("enemy");
+var score = 0;
+
+
+window.onload = function enemyMove(){
+
+setTimeout(StartScore, 700);
+setTimeout(setEnemyMove, 700);
+}
+
+function setEnemyMove() {
+document.getElementById("enemy").className = "enemyMove";
+}
+
+function StartScore() {
+
+setInterval(function(){
+
+if (playerAlive == true){
+	score = score + 1;
+	document.getElementById("score").innerHTML = score;
+	}
+}, 100);
+
+}
+
+
+function playerJump(){
+	
+if (document.getElementById("player").className != "animate"){
+
+document.getElementById("player").className = "animate";
+}
+
+setTimeout(function(){
+		document.getElementById("player").className = "";
+	}, 800);
+	
+}
+
+setInterval(ifDeath, 10);
+
+function playerDie() {
+var player = document.getElementById("player");
+var enemy = document.getElementById("enemy");
+  const domRect1 = player.getBoundingClientRect();
+  const domRect2 = enemy.getBoundingClientRect();
+  
+
+
+  return !(
+	domRect1.top > domRect2.bottom ||
+	domRect1.right < domRect2.left ||
+	domRect1.bottom < domRect2.top ||
+	domRect1.left > domRect2.right
+  );
+}
+
+var playerAlive = true; 
+
+
+function ifDeath() {
+var player = document.getElementById("player");
+var enemy = document.getElementById("enemy");
+
+if(playerDie (player, enemy) && playerAlive){
+	
+	playerAlive = false;   
+	
+	player.style.display = "none";
+	enemy.style.display = "none";	document.getElementById("score").style.display = "none";
+	document.getElementById("enemy").className = "";
+
+
+document.getElementById("loseMsg").innerHTML = "You've died! :(" + "<br />" + "<br />" + " Score: " + score;
+document.getElementById("loseMsg").style.display = "block";
+
+	}
+
+}
