@@ -1,0 +1,99 @@
+body{
+	position: fixed;
+}
+
+h1 {
+	font-family: figtree;
+	text-align: center;
+	color: #2D1463;
+	margin-bottom: 5px;
+}
+
+#subT {
+	margin-top: 0px;
+	font-family: figtree;
+	text-align: center;
+	color: #2D1463;
+	font-size: 15px;
+	margin-bottom: 25px;
+}
+
+#gameBox{
+	display: block;
+	margin: auto;
+	border: 5px #7533FF solid;
+	border-radius: 15px;
+	width: 95%;
+	height: 150px;
+	padding: 5px;
+	margin-bottom: 135px;
+
+}
+
+#player {
+	width: 25px;
+	height: 45px;
+	border: 1px #2D1463 solid;
+	border-radius: 7px;
+	background-color: #2D1463;
+	position: relative;
+	top: 84px;
+	left: 50px;
+	z-index: 9;
+}
+
+.animate {
+	animation: playerJump 0.8s;
+}
+
+@keyframes playerJump{
+	0%{top:84px;}
+	50%{top:20px;}
+	100%{top: 84px;}
+}
+
+#enemy {
+	width: 25px;
+	height: 25px;
+	border: 1px #B923B0 solid;
+	border-radius: 6px;
+	background-color: #B923B0;
+	position: relative;
+	top: 56px;
+	left: 261px;
+}
+
+.enemyMove {
+	animation: enemyMove 1.2s linear infinite;
+}
+
+@keyframes enemyMove {
+	0%{left: 261px;}
+	100%{left:-6px;}
+}
+
+#score {
+	margin: 0px;
+	padding: 0px;
+	font-family: figtree;
+	text-align: right;
+	margin-right: 3px;
+}
+
+#loseMsg {
+	color: #2D1463;
+	font-family: figtree;
+	text-align: center;
+	display: none;
+	font-size: 30px;
+	margin: 0px;
+	margin-top: 20px;
+	padding: 0px;
+}
+
+#credits {
+	font-family: figtree;
+	color: #B2B2B2;
+	text-align: center;
+	font-size: 13px;
+}
